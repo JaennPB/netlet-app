@@ -13,19 +13,15 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 const LoginScreen = () => {
   const navigation = useNavigation();
 
-  const switchToSignUpHandler = () => {
-    navigation.goBack();
-  };
-
-  const loginHandler = () => {
-    navigation.navigate("MainApp");
+  const switchToLoginHandler = () => {
+    navigation.navigate("LoginScreen");
   };
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Card>
         <Heading mb="5" size="xl" fontWeight="medium" color="muted.300">
-          Login
+          Sign Up
         </Heading>
         <CustomInput
           title="Email"
@@ -55,13 +51,27 @@ const LoginScreen = () => {
           }
           type="password"
         />
-        <CustomButton title="Login" primary onPress={loginHandler} />
+        <CustomInput
+          title="Confirm password"
+          variant="underlined"
+          placeholder="Confirm password"
+          icon={
+            <Icon
+              as={<MaterialCommunityIcons name="account-lock-outline" />}
+              size={5}
+              ml={2}
+              color="muted.300"
+            />
+          }
+          type="password"
+        />
+        <CustomButton title="Sign up" primary />
       </Card>
-      <CustomButton
-        title="Don't have an account"
-        variant="outline"
-        onPress={switchToSignUpHandler}
-      />
+        <CustomButton
+          title="Already have an account"
+          variant="outline"
+          onPress={switchToLoginHandler}
+        />
     </KeyboardAvoidingView>
   );
 };
