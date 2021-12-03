@@ -1,11 +1,18 @@
 import { createSlice } from "@reduxjs/toolkit";
 
-const initalState = {};
+const initialState = {
+  currentUser: null,
+  isLoading: false,
+};
 
 const firebaseSlice = createSlice({
   name: "firebaseSlice",
-  initalState,
-  reducers: {},
+  initialState,
+  reducers: {
+    // addUser: (state, action) => {
+    //   state.currentUser = action.payload;
+    // },
+  },
 });
 
 export const {} = firebaseSlice.actions;

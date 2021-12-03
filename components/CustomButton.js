@@ -7,7 +7,7 @@ const CustomButton = (props) => {
       w="100%"
       mt={5}
       variant={props.variant}
-      borderColor="muted.500"
+      borderColor={props.primary ? null : "muted.500"}
       _text={{ color: props.primary ? "white" : "muted.500" }}
       onPress={props.onPress}
     >

@@ -42,6 +42,6 @@ export default App;
 const styles = StyleSheet.create({
   backscreen: {
     flex: 1,
-    backgroundColor: "#0C3846",
+    // backgroundColor: "#0C3846",
   },
 });

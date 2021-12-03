@@ -1,8 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
+import firebaseSlice from "./firebaseSlice";
+
 const store = configureStore({
   reducer: {
-    firestore: firestore,
+    firestore: firebaseSlice,
   },
 });
 

@@ -9,8 +9,8 @@ const Card = (props) => {
       px={10}
       py={5}
       rounded={5}
-      borderColor="muted.300"
-      borderWidth={0.5}
+      borderColor="muted.500"
+      borderWidth={1}
     >
       {props.children}
     </Box>

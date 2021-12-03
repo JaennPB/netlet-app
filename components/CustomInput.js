@@ -5,9 +5,7 @@ const CustomInput = (props) => {
   return (
     <Box w="100%">
       <Box>
-        <Text fontSize="lg" color="muted.300">
-          {props.title}
-        </Text>
+        <Text fontSize="lg">{props.title}</Text>
       </Box>
       <Input
         mb={3}
@@ -15,8 +13,8 @@ const CustomInput = (props) => {
         placeholder={props.placeholder}
         InputLeftElement={props.icon}
         type={props.type}
-        borderColor="muted.300"
-        color="muted.300"
+        value={props.value}
+        onChangeText={props.onChangeText}
       />
     </Box>
   );

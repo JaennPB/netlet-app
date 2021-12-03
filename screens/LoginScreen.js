@@ -24,7 +24,7 @@ const LoginScreen = () => {
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
       <Card>
-        <Heading mb="5" size="xl" fontWeight="medium" color="muted.300">
+        <Heading mb="5" size="xl" fontWeight="medium">
           Login
         </Heading>
         <CustomInput
@@ -36,7 +36,7 @@ const LoginScreen = () => {
               as={<MaterialCommunityIcons name="email-outline" />}
               size={5}
               ml={2}
-              color="muted.300"
+              color="muted.400"
             />
           }
           type="text"
@@ -50,7 +50,7 @@ const LoginScreen = () => {
               as={<MaterialCommunityIcons name="account-lock-outline" />}
               size={5}
               ml={2}
-              color="muted.300"
+              color="muted.400"
             />
           }
           type="password"
@@ -74,6 +74,5 @@ const styles = StyleSheet.create({
     justifyContent: "center",
     alignItems: "center",
     paddingHorizontal: 20,
-    backgroundColor: "#0C3846",
   },
 });
