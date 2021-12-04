@@ -29,12 +29,10 @@ const LoginScreen = () => {
   React.useEffect(() => {
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (!user) return;
-      console.log(user);
-      //TODO: nav.replace('home')
     });
+    console.log("run signup");
     return unsubscribe;
-  }, [username]);
-
+  }, []);
   const signUpUserHandler = () => {
     if (password !== password2) {
       console.log("passwords dont match");
@@ -49,6 +47,7 @@ const LoginScreen = () => {
           .then(() => {
             console.log("updated");
             console.log(auth.currentUser.displayName);
+            navigation.replace("MainApp");
           })
           .catch();
       })

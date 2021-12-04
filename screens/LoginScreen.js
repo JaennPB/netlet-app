@@ -13,6 +13,10 @@ import { MaterialCommunityIcons } from "@expo/vector-icons";
 const LoginScreen = () => {
   const navigation = useNavigation();
 
+  React.useEffect(() => {
+    console.log("run login");
+  });
+
   const switchToSignUpHandler = () => {
     navigation.goBack();
   };
