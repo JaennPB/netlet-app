@@ -4,24 +4,16 @@ import {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   updateProfile,
+  signInWithEmailAndPassword,
 } from "firebase/auth";
 
-import {
-  REACT_NATIVE_APP_FIREBASE_API_KEY,
-  REACT_NATIVE_APP_AUTH_DOMAIN,
-  REACT_NATIVE_APP_PROJECT_ID,
-  REACT_NATIVE_APP_STORAGE_BUCKET,
-  REACT_NATIVE_APP_MESSAGER_SENDER_ID,
-  REACT_NATIVE_APP_FIREBASE_APP_ID,
-} from "@env";
-
 const firebaseConfig = {
-  apiKey: REACT_NATIVE_APP_FIREBASE_API_KEY,
-  authDomain: REACT_NATIVE_APP_AUTH_DOMAIN,
-  projectId: REACT_NATIVE_APP_PROJECT_ID,
-  storageBucket: REACT_NATIVE_APP_STORAGE_BUCKET,
-  messagingSenderId: REACT_NATIVE_APP_MESSAGER_SENDER_ID,
-  appId: REACT_NATIVE_APP_FIREBASE_APP_ID,
+  apiKey: "AIzaSyAQH7MjqPP5kFRdeCkaK--JS61t08951CI",
+  authDomain: "netlet-dev.firebaseapp.com",
+  projectId: "netlet-dev",
+  storageBucket: "netlet-dev.appspot.com",
+  messagingSenderId: "1075483014486",
+  appId: "1:1075483014486:web:fada6c07a324df54bad2f7",
 };
 
 initializeApp(firebaseConfig);
@@ -31,4 +23,5 @@ export {
   createUserWithEmailAndPassword,
   onAuthStateChanged,
   updateProfile,
+  signInWithEmailAndPassword,
 };

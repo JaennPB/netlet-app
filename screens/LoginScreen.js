@@ -4,6 +4,8 @@ import { Icon, Heading } from "native-base";
 
 import { useNavigation } from "@react-navigation/native";
 
+import { getAuth, signInWithEmailAndPassword } from "../firebase";
+
 import Card from "../components/Card";
 import CustomInput from "../components/CustomInput";
 import CustomButton from "../components/CustomButton";
@@ -11,18 +13,27 @@ import CustomButton from "../components/CustomButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const LoginScreen = () => {
-  const navigation = useNavigation();
+  const [email, setEmail] = React.useState(null);
+  const [password, setPassword] = React.useState(null);
+  const [isLoading, setIsLoading] = React.useState(false);
+  const auth = getAuth();
 
-  React.useEffect(() => {
-    console.log("run login");
-  });
+  const navigation = useNavigation();
 
   const switchToSignUpHandler = () => {
     navigation.goBack();
   };
 
   const loginHandler = () => {
-    navigation.navigate("MainApp");
+    setIsLoading(true);
+    signInWithEmailAndPassword(auth, email, password)
+      .then(() => {
+        setIsLoading(false);
+        navigation.replace("MainApp");
+      })
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   return (
@@ -44,6 +55,8 @@ const LoginScreen = () => {
             />
           }
           type="text"
+          value={email}
+          onChangeText={(email) => setEmail(email)}
         />
         <CustomInput
           title="Password"
@@ -58,6 +71,8 @@ const LoginScreen = () => {
             />
           }
           type="password"
+          value={password}
+          onChangeText={(password) => setPassword(password)}
         />
         <CustomButton title="Login" primary onPress={loginHandler} />
       </Card>
