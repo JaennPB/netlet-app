@@ -7,7 +7,6 @@ import {
 import { Icon, Heading } from "native-base";
 
 import {
-  onAuthStateChanged,
   getAuth,
   createUserWithEmailAndPassword,
   updateProfile,
@@ -31,13 +30,6 @@ const LoginScreen = () => {
   const [isLoading, setIsLoading] = React.useState(false);
   const auth = getAuth();
 
-  // React.useEffect(() => {
-  //   const unsubscribe = onAuthStateChanged(auth, (user) => {
-  //     if (!user) return;
-  //   });
-  //   return unsubscribe;
-  // }, []);
-
   const signUpUserHandler = () => {
     if (password !== password2 || !email) {
       console.log("passwords dont match");
@@ -53,9 +45,13 @@ const LoginScreen = () => {
             setIsLoading(false);
             navigation.replace("MainApp");
           })
-          .catch();
+          .catch((error) => {
+            console.log(error);
+          });
       })
-      .catch();
+      .catch((error) => {
+        console.log(error);
+      });
   };
 
   const switchToLoginHandler = () => {

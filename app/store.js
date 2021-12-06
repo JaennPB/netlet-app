@@ -1,10 +1,10 @@
 import { configureStore } from "@reduxjs/toolkit";
 
-import firebaseSlice from "./firebaseSlice";
+import { cryptoApi } from "../services/cryptoApi";
 
 const store = configureStore({
   reducer: {
-    firestore: firebaseSlice,
+    [cryptoApi.reducerPath]: cryptoApi.reducer,
   },
 });
 

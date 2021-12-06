@@ -1,6 +1,6 @@
 import React from "react";
-import { View, StyleSheet } from "react-native";
-import { NativeBaseProvider, StatusBar } from "native-base";
+import { View, StyleSheet, StatusBar } from "react-native";
+import { NativeBaseProvider } from "native-base";
 
 import { Provider } from "react-redux";
 
@@ -24,10 +24,10 @@ const App = () => {
           <NativeBaseProvider>
             <Stack.Navigator
               screenOptions={{ headerShown: false }}
-              initialRouteName="SignUpScreen"
+              initialRouteName="LoginScreen"
             >
-              <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
               <Stack.Screen name="LoginScreen" component={LoginScreen} />
+              <Stack.Screen name="SignUpScreen" component={SignUpScreen} />
               <Stack.Screen name="MainApp" component={DrawerNav} />
             </Stack.Navigator>
           </NativeBaseProvider>

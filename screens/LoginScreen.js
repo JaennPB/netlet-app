@@ -1,5 +1,10 @@
 import React from "react";
-import { KeyboardAvoidingView, StyleSheet } from "react-native";
+import {
+  KeyboardAvoidingView,
+  StyleSheet,
+  ActivityIndicator,
+} from "react-native";
+
 import { Icon, Heading } from "native-base";
 
 import { useNavigation } from "@react-navigation/native";
@@ -13,8 +18,8 @@ import CustomButton from "../components/CustomButton";
 import { MaterialCommunityIcons } from "@expo/vector-icons";
 
 const LoginScreen = () => {
-  const [email, setEmail] = React.useState(null);
-  const [password, setPassword] = React.useState(null);
+  const [email, setEmail] = React.useState("test@test.com");
+  const [password, setPassword] = React.useState("jaennjaenn");
   const [isLoading, setIsLoading] = React.useState(false);
   const auth = getAuth();
 
@@ -38,49 +43,55 @@ const LoginScreen = () => {
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
-      <Card>
-        <Heading mb="5" size="xl" fontWeight="medium">
-          Login
-        </Heading>
-        <CustomInput
-          title="Email"
-          variant="underlined"
-          placeholder="Your email"
-          icon={
-            <Icon
-              as={<MaterialCommunityIcons name="email-outline" />}
-              size={5}
-              ml={2}
-              color="muted.400"
+      {isLoading ? (
+        <ActivityIndicator size="large" animating color="#0C3846" />
+      ) : (
+        <>
+          <Card>
+            <Heading mb="5" size="xl" fontWeight="medium">
+              Login
+            </Heading>
+            <CustomInput
+              title="Email"
+              variant="underlined"
+              placeholder="Your email"
+              icon={
+                <Icon
+                  as={<MaterialCommunityIcons name="email-outline" />}
+                  size={5}
+                  ml={2}
+                  color="muted.400"
+                />
+              }
+              type="text"
+              value={email}
+              onChangeText={(email) => setEmail(email)}
             />
-          }
-          type="text"
-          value={email}
-          onChangeText={(email) => setEmail(email)}
-        />
-        <CustomInput
-          title="Password"
-          variant="underlined"
-          placeholder="Password"
-          icon={
-            <Icon
-              as={<MaterialCommunityIcons name="account-lock-outline" />}
-              size={5}
-              ml={2}
-              color="muted.400"
+            <CustomInput
+              title="Password"
+              variant="underlined"
+              placeholder="Password"
+              icon={
+                <Icon
+                  as={<MaterialCommunityIcons name="account-lock-outline" />}
+                  size={5}
+                  ml={2}
+                  color="muted.400"
+                />
+              }
+              type="password"
+              value={password}
+              onChangeText={(password) => setPassword(password)}
             />
-          }
-          type="password"
-          value={password}
-          onChangeText={(password) => setPassword(password)}
-        />
-        <CustomButton title="Login" primary onPress={loginHandler} />
-      </Card>
-      <CustomButton
-        title="Don't have an account"
-        variant="outline"
-        onPress={switchToSignUpHandler}
-      />
+            <CustomButton title="Login" primary onPress={loginHandler} />
+          </Card>
+          <CustomButton
+            title="Don't have an account"
+            variant="outline"
+            onPress={switchToSignUpHandler}
+          />
+        </>
+      )}
     </KeyboardAvoidingView>
   );
 };
