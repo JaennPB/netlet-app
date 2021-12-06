@@ -26,7 +26,7 @@ const LoginScreen = () => {
   const navigation = useNavigation();
 
   const switchToSignUpHandler = () => {
-    navigation.goBack();
+    navigation.replace("SignUpScreen");
   };
 
   const loginHandler = () => {
@@ -43,11 +43,11 @@ const LoginScreen = () => {
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
-      {isLoading ? (
-        <ActivityIndicator size="large" animating color="#0C3846" />
-      ) : (
-        <>
-          <Card>
+      <Card width="100%">
+        {isLoading ? (
+          <ActivityIndicator size="large" animating color="#0C3846" />
+        ) : (
+          <>
             <Heading mb="5" size="xl" fontWeight="medium">
               Login
             </Heading>
@@ -84,14 +84,14 @@ const LoginScreen = () => {
               onChangeText={(password) => setPassword(password)}
             />
             <CustomButton title="Login" primary onPress={loginHandler} />
-          </Card>
-          <CustomButton
-            title="Don't have an account"
-            variant="outline"
-            onPress={switchToSignUpHandler}
-          />
-        </>
-      )}
+          </>
+        )}
+      </Card>
+      <CustomButton
+        title="Don't have an account"
+        variant="outline"
+        onPress={switchToSignUpHandler}
+      />
     </KeyboardAvoidingView>
   );
 };

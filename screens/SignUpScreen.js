@@ -55,16 +55,16 @@ const LoginScreen = () => {
   };
 
   const switchToLoginHandler = () => {
-    navigation.navigate("LoginScreen");
+    navigation.replace("LoginScreen");
   };
 
   return (
     <KeyboardAvoidingView style={styles.container} behavior="padding">
-      {isLoading ? (
-        <ActivityIndicator size="large" animating color="#0C3846" />
-      ) : (
-        <>
-          <Card>
+      <Card width="100%">
+        {isLoading ? (
+          <ActivityIndicator size="large" animating color="#0C3846" />
+        ) : (
+          <>
             <Heading mb="5" size="xl" fontWeight="medium">
               Sign Up
             </Heading>
@@ -134,14 +134,14 @@ const LoginScreen = () => {
               onChangeText={(password2) => setPassword2(password2)}
             />
             <CustomButton title="Sign up" primary onPress={signUpUserHandler} />
-          </Card>
-          <CustomButton
-            title="Already have an account"
-            variant="outline"
-            onPress={switchToLoginHandler}
-          />
-        </>
-      )}
+          </>
+        )}
+      </Card>
+      <CustomButton
+        title="Already have an account"
+        variant="outline"
+        onPress={switchToLoginHandler}
+      />
     </KeyboardAvoidingView>
   );
 };
