@@ -12,7 +12,7 @@ const StatCard = (props) => {
       alignItems="flex-start"
       mb={5}
     >
-      <Heading size="sm" color="muted.500" mb={2}>
+      <Heading size="sm" color="muted.500" mb={2} fontWeight="thin">
         {props.stat}
       </Heading>
       <Text bold>{props.info}</Text>
