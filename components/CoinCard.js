@@ -1,6 +1,5 @@
 import React from "react";
 import { Box, Divider, Flex, Heading, Text } from "native-base";
-import { SvgCssUri } from "react-native-svg";
 
 const CoinCard = (props) => {
   return (
@@ -11,15 +10,16 @@ const CoinCard = (props) => {
       rounded={5}
       alignItems="flex-start"
       mb={5}
-      borderColor="muted.500"
-      borderWidth={1}
+      borderColor={props.color}
+      borderWidth={1.5}
     >
       <Flex direction="row" align="center">
-        <Heading size="xs">{props.position}.</Heading>
+        <Heading size="xs" mr={1}>
+          {props.position}.
+        </Heading>
         <Heading size="xs">{props.name}</Heading>
-        {/* <SvgCssUri height="10%" width="10%" uri={props.icon} /> */}
       </Flex>
-      <Divider />
+      <Divider my={1} />
       <Flex>
         <Text>Price: {props.price}</Text>
         <Text>Market cap: {props.marketCap}</Text>

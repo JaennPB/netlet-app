@@ -11,12 +11,18 @@ const createRequest = (url) => ({ url, headers: headers });
 
 export const cryptoApi = createApi({
   reducerPath: "cryptoApi",
-  baseQuery: fetchBaseQuery({
-    baseUrl,
-  }),
+  baseQuery: fetchBaseQuery({ baseUrl: baseUrl }),
   endpoints: (builder) => ({
     getCryptos: builder.query({
-      query: () => createRequest("/coins"),
+      query: (param) => {
+        if (param === "globalStats") {
+          return createRequest(`/coins`);
+        } else if (param === "coinsHome") {
+          return createRequest(`/coins?limit=${10}`);
+        } else if (param === "coinsScreen") {
+          return createRequest(`/coins`);
+        }
+      },
     }),
   }),
 });

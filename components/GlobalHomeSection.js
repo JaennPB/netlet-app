@@ -9,7 +9,7 @@ import millify from "millify";
 import StatCard from "./StatCard";
 
 const GlobalHomeSection = () => {
-  const { data, isFetching } = useGetCryptosQuery();
+  const { data, isFetching } = useGetCryptosQuery("globalStats");
   const globalStats = data?.data?.stats;
 
   return (
